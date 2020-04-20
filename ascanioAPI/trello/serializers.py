@@ -1,24 +1,13 @@
 from rest_framework import serializers
-from .models import Category, Card
+from .models import Todo
 
 
-class CategorySerializer(serializers.ModelSerializer):
-
+class TodoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category
         fields = (
             'id',
-            'name',
+            'title',
+            'description',
+            'label',
         )
-
-
-class CardSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Card
-        fields = (
-            'id',
-            'name',
-            'content',
-            'priority',
-        )
+        model = Todo

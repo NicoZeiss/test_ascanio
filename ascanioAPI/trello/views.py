@@ -1,17 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from rest_framework import status, viewsets
-from rest_framework.response import Response
+from rest_framework import generics
 
-from .models import Category, Card
-from .serializers import CategorySerializer, CardSerializer
+from .models import Todo
+from .serializers import TodoSerializer
 
 
-class CardViewSet(viewsets.ModelViewSet):
-	queryset = Card.objects.all()
-	serializer_class = CardSerializer
+class ListTodo(generics.ListCreateAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
-	queryset = Category.objects.all()
-	serializer_class = CategorySerializer
+class DetailTodo(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer

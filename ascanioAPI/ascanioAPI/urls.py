@@ -1,8 +1,9 @@
+# todo_api/urls.py
 from django.contrib import admin
-from django.urls import path, include
-from trello.urls import router
+from django.urls import include, path
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include('trello.urls')),
 ]

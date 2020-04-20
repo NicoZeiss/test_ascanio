@@ -1,18 +1,12 @@
+# todos/models.py
 from django.db import models
 
 
-
-class Category(models.Model):
-    name = models.CharField(max_length = 50, blank=False, default='')
-
-    def __str__(self):
-        return self.name
-
-
-class Card(models.Model):
-    name = models.CharField(max_length=250, blank=False, default='')
-    content = models.TextField()
-    priority = models.IntegerField()
+class Todo(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    label = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.name
+        """A string representation of the model."""
+        return self.title

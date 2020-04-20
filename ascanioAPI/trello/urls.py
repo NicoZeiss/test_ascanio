@@ -1,8 +1,8 @@
-from django.conf.urls import url
-from rest_framework import routers
-from .views import CategoryViewSet, CardViewSet
+from django.urls import path
 
+from . import views
 
-router = routers.DefaultRouter()
-router.register(r'category', CategoryViewSet)
-router.register(r'cards', CardViewSet)
+urlpatterns = [
+    path('', views.ListTodo.as_view()),
+    path('<int:pk>/', views.DetailTodo.as_view()),
+]
